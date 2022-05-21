@@ -1,0 +1,9 @@
+---
+apiVersion: redacted.redacted.com/v1
+kind: Redacted
+metadata:
+  name: test-crd
+  namespace: redacted-namespace
+spec:
+  field1: test
+  field2: 2

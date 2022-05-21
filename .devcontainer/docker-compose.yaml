@@ -1,0 +1,9 @@
+services:
+  python:
+    volumes:
+      - .:/workspace:cached
+      - vscode-extensions:/root/.vscode-server/extensions
+    entrypoint: "sleep infinity"
+
+volumes:
+  vscode-extensions:

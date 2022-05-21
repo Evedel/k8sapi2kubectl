@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+import logging
+
+from tests.integration_tests import TestK8sBase
+
+
+if __name__ == "__main__":
+    log_format = f"%(asctime)s %(message)s"
+
+    logging.basicConfig(
+        stream=sys.stdout, level=os.environ.get("LOGLEVEL", "INFO"), format=log_format
+    )
+    tester = TestK8sBase()
+    tester.test_get_many_kinds()
+    n_total = 0
+    n_passed = 0
+    for method in dir(tester):
+        if method.startswith("test_"):
+            n_total += 1
+            passed = getattr(tester, method)()
+            if passed:
+                n_passed += 1
+                print(f"{method} passed")
+            else:
+                print(f"{method} failed")
+    print(f"{n_passed}/{n_total} passed")

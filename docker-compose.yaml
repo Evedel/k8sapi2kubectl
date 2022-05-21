@@ -1,0 +1,17 @@
+---
+version: '3.8'
+
+x-base: &base
+  build:
+    context: .
+    target: python
+  volumes:
+    - "$HOME/.kube:/root/.kube"
+    - "$HOME/.aws:/root/.aws"
+    - ".:/workspace"
+  working_dir: /workspace
+
+services:
+  python:
+    <<: *base
+    entrypoint: ["python"]
