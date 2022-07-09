@@ -2,6 +2,8 @@
 
 One day adventure to make k8s api library to feel more like a kubectl.
 
+The best place to see the usage examples is the [integration_tests.py](https://github.com/Evedel/k8sapi2kubectl/blob/main/tests/integration_tests.py#L14).
+
 If you want to run the code:
 1. **DON'T**, it is exploration project only. I'm sane, if you are sane too, please, consider writing `subprocess` wrapper around the `kubectl` binary.
 
